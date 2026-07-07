@@ -1,1 +1,107 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>เกมเขียนตามคำบอกภาษาไทย</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
+<body>
+  <div class="app">
+
+    <section id="startScreen" class="screen active">
+      <div class="hero-card">
+        <div class="badge">ภาษาไทย ป.๔–ป.๖</div>
+
+        <h1>นักเขียนคำ<br>พิชิตด่าน</h1>
+        <p class="subtitle">ฟังเสียงคำ แล้วพิมพ์คำตอบให้ถูกต้อง</p>
+
+        <div class="player-box">
+          <label>ชื่อผู้เล่น</label>
+          <input id="playerName" type="text" placeholder="พิมพ์ชื่อของคุณ..." />
+        </div>
+
+        <button class="main-btn" onclick="startGame()">
+          เริ่มภารกิจ
+        </button>
+      </div>
+    </section>
+
+    <section id="gameScreen" class="screen">
+      <header class="topbar">
+        <div>
+          <small>ผู้เล่น</small>
+          <strong id="showName">-</strong>
+        </div>
+
+        <div>
+          <small>ข้อที่</small>
+          <strong><span id="currentNo">๑</span>/<span id="totalNo">๑๐</span></strong>
+        </div>
+
+        <div>
+          <small>คะแนน</small>
+          <strong id="scoreText">๐</strong>
+        </div>
+      </header>
+
+      <div class="progress-wrap">
+        <div id="progressBar" class="progress-bar"></div>
+      </div>
+
+      <main class="game-card">
+        <div class="sound-circle" onclick="speakWord()">
+          🔊
+        </div>
+
+        <h2>ฟังให้ดี แล้วพิมพ์คำตอบ</h2>
+        <p>กดปุ่มเสียงเพื่อฟังคำอีกครั้งได้</p>
+
+        <input id="answerInput" class="answer-input" type="text" placeholder="พิมพ์คำที่ได้ยิน..." />
+
+        <button class="submit-btn" onclick="checkAnswer()">
+          ส่งคำตอบ
+        </button>
+
+        <div id="feedback" class="feedback"></div>
+      </main>
+    </section>
+
+    <section id="resultScreen" class="screen">
+      <div class="result-card">
+        <div class="trophy">🏆</div>
+        <h1>ภารกิจสำเร็จ!</h1>
+
+        <div class="result-grid">
+          <div>
+            <small>คะแนนรวม</small>
+            <strong id="finalScore">๐</strong>
+          </div>
+          <div>
+            <small>เขียนถูก</small>
+            <strong id="correctCount">๐</strong>
+          </div>
+          <div>
+            <small>เขียนผิด</small>
+            <strong id="wrongCount">๐</strong>
+          </div>
+          <div>
+            <small>คิดเป็น</small>
+            <strong id="percentText">๐%</strong>
+          </div>
+        </div>
+
+        <div id="levelText" class="level-box">กำลังพัฒนา</div>
+
+        <button class="main-btn" onclick="restartGame()">
+          เล่นอีกครั้ง
+        </button>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
